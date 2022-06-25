@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.security: debug
+    org.hibernate.SQL: debug # ??? ?? ???
+    #org.hibernate.type: trace # ?? ???? ??
+
+spring:
+  messages:
+    basename: messages
+  datasource:
+    url: jdbc:log4jdbc:mariadb://localhost:3306/testdb
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: false
+
+  jwt:
+    secret: govlepl!@#
+
+  security:
+    user:
+      name: username
+      password: password
+
+  data:
+    rest:
+      base-path: /api
+
+  main:
+    allow-bean-definition-overriding: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+my-app:
+  client-id: myApp
+  client-secret: pass
